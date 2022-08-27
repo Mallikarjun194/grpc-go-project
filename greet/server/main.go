@@ -11,15 +11,16 @@ type Server struct {
 	pb.GreetServiceServer
 }
 
-var addr string = "127.0.0.1:5001"
+var addr = "0.0.0.0:50001"
 
 func main() {
 	lis, err := net.Listen("tcp", addr)
 	if err != nil {
 		log.Fatalf("Failed to listen on %v\n", err)
 	}
-	log.Fatal("Listening on:", addr)
+	log.Printf("Listening on %s", addr)
 	s := grpc.NewServer()
+	pb.RegisterGreetServiceServer(s, &Server{})
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("Failed to server %v\n", err)
 	}
