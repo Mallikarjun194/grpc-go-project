@@ -1,0 +1,17 @@
+
+syntax = "proto3";
+package calculator;
+
+option go_package = "grpc-go-project/calculator/proto";
+message CalRequest{
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message CalResp{
+  int32 res = 1;
+}
+
+service CalcService{
+  rpc Calculator(CalRequest) returns (CalResp);
+}
