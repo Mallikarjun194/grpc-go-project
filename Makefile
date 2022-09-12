@@ -37,8 +37,8 @@ else
 endif
 
 .DEFAULT_GOAL := help
-.PHONY: greet blog calculator prime help
-project := greet calculator blog prime
+.PHONY: greet blog calculator prime help maxsum
+project := greet calculator blog prime maxsum
 
 all: $(project) ## Generate Pbs and build
 
@@ -46,6 +46,7 @@ greet: $@ ## Generate Pbs and build for greet
 calculator: $@ ## Generate Pbs and build for calculator
 blog: $@ ## Generate Pbs and build for blog
 prime: $@ ## Generate Pbs and build for prime
+maxsum: $@ ## Generate Pbs and build for sum
 
 $(project):
 	@${CHECK_DIR_CMD}

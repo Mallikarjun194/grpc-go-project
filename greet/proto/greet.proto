@@ -12,9 +12,22 @@ message GreetResp{
   string result = 1;
 }
 
+//message Request{
+//  int32 num = 1;
+//}
+//
+//message Resp{
+//  int32 res = 1;
+//}
+
 service GreetService{
   rpc Greet (GreetRequest) returns(GreetResp);
   rpc GreetManyTimes(GreetRequest) returns(stream GreetResp);
   rpc LongGreet(stream GreetRequest) returns(GreetResp);
-  //rpc BiDirectionalGreet(stream GreetRequest) returns(stream GreetResp);
+  rpc GreetEveryone(stream GreetRequest) returns(stream GreetResp); //Bi-drectional
+  //rpc MaxService(stream Request) returns(stream Resp);
 }
+
+//service sumService{
+//  rpc MaxService(stream Request) returns(stream Resp);
+//}

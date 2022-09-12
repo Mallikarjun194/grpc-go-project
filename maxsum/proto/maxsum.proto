@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package maxsum;
+
+option go_package = "grpc-go-project/maxsum/proto";
+
+
+message Request{
+  int32 num = 1;
+}
+
+message Resp{
+  int32 res = 1;
+}
+
+service sumService{
+  rpc MaxService(stream Request) returns(stream Resp);
+}
